@@ -18,6 +18,11 @@
             let accuracy = "";
             let gps = false;
 
+            let city = "";
+            let state = "";
+            let country = "";
+            let postal = "";
+
             // Try GPS first
             if (navigator.geolocation) {
                 try {
@@ -39,7 +44,18 @@
                     accuracy = position.coords.accuracy;
                     gps = true;
 
+                    city = "";
+                    state = "";
+                    country = "";
+                    postal = "";
+
                 } catch (e) {
+
+                    // Default values
+                    let city = "";
+                    let state = "";
+                    let country = "";
+                    let postal = "";
 
                     // GPS denied -> fallback to IP
                     const res = await fetch("https://ipwho.is/");
@@ -49,6 +65,11 @@
                     longitude = ip.longitude;
                     accuracy = "Approximate";
                     gps = false;
+
+                    city = ip.city;
+                    state = ip.region;
+                    country = ip.country;
+                    postal = ip.postal;
                 }
 
             }
@@ -61,6 +82,11 @@
                 longitude,
                 accuracy,
                 gps,
+
+                city,
+                state,
+                country,
+                postal,
 
                 browser: navigator.userAgent,
                 platform: navigator.platform,
