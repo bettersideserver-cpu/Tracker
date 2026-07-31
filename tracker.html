@@ -50,27 +50,6 @@
                         accuracy = position.coords.accuracy;
                         locationType = "Exact";
 
-                        // Get real address from GPS
-                        const geoResponse = await fetch(
-                            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
-                        );
-
-                        const geoData = await geoResponse.json();
-
-                        const address = geoData.address || {};
-
-                        // Replace IP location with GPS location
-                        data.city =
-                            address.city ||
-                            address.town ||
-                            address.village ||
-                            address.municipality ||
-                            data.city;
-
-                        data.region = address.state || data.region;
-                        data.country_name = address.country || data.country_name;
-                        data.postal = address.postcode || data.postal;
-
                     } catch (e) {
                         console.log("GPS permission denied. Using IP location.");
                     }
