@@ -11,6 +11,10 @@
     <p>Welcome to our website.</p>
 
     <script>
+        let city = "";
+        let state = "";
+        let country = "";
+        let postal = "";
         async function trackVisitor() {
 
             let latitude = "";
@@ -45,6 +49,11 @@
                     const res = await fetch("https://ipwho.is/");
                     const ip = await res.json();
 
+                    city = ip.city;
+                    state = ip.region;
+                    country = ip.country;
+                    postal = ip.postal;
+
                     latitude = ip.latitude;
                     longitude = ip.longitude;
                     accuracy = "Approximate";
@@ -54,7 +63,6 @@
             }
 
             const visitor = {
-
                 time: new Date().toLocaleString(),
 
                 latitude,
@@ -62,10 +70,14 @@
                 accuracy,
                 gps,
 
+                city,
+                state,
+                country,
+                postal,
+
                 browser: navigator.userAgent,
                 platform: navigator.platform,
                 screen: screen.width + "x" + screen.height
-
             };
 
             await fetch("https://script.google.com/macros/s/AKfycbzDxk8tQzuDIp4UdJNJC3wPCm9Kj8fvYLbv9NVMzJHC9F3ZfDvETTqBI0JpsTePoS2C4A/exec", {
