@@ -41,12 +41,6 @@
 
                 } catch (e) {
 
-                    // Default values
-                    let city = "";
-                    let state = "";
-                    let country = "";
-                    let postal = "";
-
                     // GPS denied -> fallback to IP
                     const res = await fetch("https://ipwho.is/");
                     const ip = await res.json();
@@ -55,11 +49,6 @@
                     longitude = ip.longitude;
                     accuracy = "Approximate";
                     gps = false;
-
-                    city = ip.city;
-                    state = ip.region;
-                    country = ip.country;
-                    postal = ip.postal;
                 }
 
             }
