@@ -51,12 +51,6 @@
 
                 } catch (e) {
 
-                    // Default values
-                    let city = "";
-                    let state = "";
-                    let country = "";
-                    let postal = "";
-
                     // GPS denied -> fallback to IP
                     const res = await fetch("https://ipwho.is/");
                     const ip = await res.json();
