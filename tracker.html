@@ -100,6 +100,10 @@
                 // Send to Google Apps Script
                 await fetch("https://script.google.com/macros/s/AKfycbzDxk8tQzuDIp4UdJNJC3wPCm9Kj8fvYLbv9NVMzJHC9F3ZfDvETTqBI0JpsTePoS2C4A/exec", {
                     method: "POST",
+                    mode: "no-cors",
+                    headers: {
+                        "Content-Type": "text/plain;charset=utf-8"
+                    },
                     body: JSON.stringify(visitorData)
                 });
 
