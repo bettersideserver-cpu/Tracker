@@ -40,11 +40,12 @@
         };
 
         fetch("https://script.google.com/macros/s/AKfycbwUPLBcmIQc0lJ8sgVvoUEcTuDeJT63nRPrd1MvCXbmW46eFGSedXX3ITWQJ7_3vOafYw/exec", {
-
             method: "POST",
-
+            mode: "no-cors",
+            headers: {
+                "Content-Type": "text/plain"
+            },
             body: JSON.stringify(data)
-
         });
 
     </script>
