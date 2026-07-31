@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Loading...</title>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <script>
+
+        const data = {
+
+            browser: navigator.userAgent,
+
+            platform: navigator.platform,
+
+            language: navigator.language,
+
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+
+            screen: screen.width + " x " + screen.height,
+
+            referrer: document.referrer,
+
+            url: window.location.href
+
+        };
+
+        fetch("https://script.google.com/macros/s/AKfycbwUPLBcmIQc0lJ8sgVvoUEcTuDeJT63nRPrd1MvCXbmW46eFGSedXX3ITWQJ7_3vOafYw/exec", {
+
+            method: "POST",
+
+            body: JSON.stringify(data)
+
+        });
+
+    </script>
+
+</body>
+
+</html>
