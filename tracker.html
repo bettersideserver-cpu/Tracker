@@ -50,6 +50,10 @@
                         accuracy = position.coords.accuracy;
                         locationType = "Exact";
 
+                        console.log("GPS Latitude:", latitude);
+                        console.log("GPS Longitude:", longitude);
+                        console.log("Accuracy:", accuracy);
+
                     } catch (e) {
                         console.log("GPS permission denied. Using IP location.");
                     }
